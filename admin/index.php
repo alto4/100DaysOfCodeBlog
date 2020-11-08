@@ -2,10 +2,12 @@
 include './includes/header.php';
 
 $conn = db_connect();
-$sql = "SELECT * FROM posts";
+$sql = "SELECT * FROM posts
+        ORDER BY posts.id DESC";
 $posts = select($sql);
 
-$sql = "SELECT * FROM categories";
+$sql = "SELECT * FROM categories
+        ORDER BY categories.id DESC";
 $categories = select($sql);
 
 ?>

@@ -1,5 +1,29 @@
 <?php
 include './includes/header.php';
+
+if (isset($_POST['submit'])) {
+
+  // Cache post variables
+  $name = $_POST['name'];
+
+  $id = count(select("SELECT * FROM categories")) + 1;
+  echo "<h1>$id</h1>";
+
+
+  if ($name == '') {
+    $error = 'Please add a name for the new category.';
+  } else {
+    $sql = "INSERT INTO categories
+            (id, name)
+            VALUES($id,'$name')";
+    insert($sql);
+  }
+}
+
+
+$sql = "SELECT * FROM categories";
+$categories = select($sql);
+
 ?>
 
 <h1>Add a Category</h1>

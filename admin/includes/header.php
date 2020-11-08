@@ -59,3 +59,8 @@ include '../config/config.php';
     <main role="main" class="container">
       <div class="row">
         <div class="col-12 blog-main">
+          <?php
+          if (isset($_GET['message'])) {
+            echo '<div class="alert alert-success">' . $_GET['message'] . '</div>';
+          }
+          ?>

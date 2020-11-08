@@ -35,6 +35,16 @@ function insert($query)
   $insertRow = pg_query($conn, $query);
 
   if ($insertRow) {
-    header('Location: index.php');
+    header('Location: index.php?message=' . urldecode("New Record Successfully Created"));
+  }
+}
+
+function update($query)
+{
+  $conn = db_connect();
+  $updateRow = pg_query($conn, $query);
+
+  if ($updateRow) {
+    header('Location: index.php?message=' . urldecode("Record Successfully Updated"));
   }
 }

@@ -6,12 +6,50 @@ $post = select("SELECT * FROM posts WHERE id = $id");
 $post = $post[0];
 $sql = "SELECT * FROM categories";
 $categories = select($sql);
+echo "<h1>ID: $id</h1>";
+
+if (isset($_POST['submit'])) {
+
+  // Cache post variables
+  $id = $post['id'];
+  $title = $_POST['title'];
+  $body = $_POST['body'];
+  $category = $_POST['category'];
+  $author = $_POST['author'];
+  $tags = $_POST['tags'];
+
+
+
+  if ($title == '' || $body == '' || $author == '') {
+    $error = 'Please fill out all fields before submitting a new entry';
+  } else {
+    echo "<h1>$id</h1>";
+    $sql = "UPDATE posts
+            SET
+            title = '$title',
+            body = '$body',
+            category = '$category',
+            author = '$author',
+            tags = '$tags'
+            WHERE id = '$id'";
+    update($sql);
+  }
+}
+
+
+$sql = "SELECT * FROM categories";
+$categories = select($sql);
 
 ?>
 <h1>Edit a Post</h1>
 
-<form method="POST" class="my-4 p-4 border" action="edit_post.php">
+<form method="POST" class="my-4 p-4 border" action="edit_post.php?id=<?php echo $id; ?>">
   <div class="form-group">
+    <label class="h4">ID</label>
+    <input name="author" type="text" class="form-control" disabled value="<?php echo $post['id']; ?>" placeholder="Enter author...">
+  </div>
+
+  <div class=" form-group">
     <label class="h4">Post Title</label>
 
     <input name="title" type="text" class="form-control" value="<?php echo $post['title']; ?>" placeholder="Enter title">
@@ -32,7 +70,7 @@ $categories = select($sql);
         } else {
           $selected = '';
         }
-        echo '<option ' . $selected . '>' . $category['id'] . "|" . $category['name'] . '</option>';
+        echo '<option ' . $selected . ' value=' . $category['id']  . '>' . $category['name'] . '</option>';
       }
       ?>
     </select>
