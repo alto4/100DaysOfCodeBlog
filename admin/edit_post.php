@@ -36,7 +36,10 @@ if (isset($_POST['submit'])) {
   }
 }
 
-
+if (isset($_POST['delete'])) {
+  $sql = "DELETE FROM posts WHERE id = " . $id;
+  delete($sql);
+}
 $sql = "SELECT * FROM categories";
 $categories = select($sql);
 
@@ -87,7 +90,7 @@ $categories = select($sql);
   </div>
   <button name="submit" type="submit" class="btn btn-dark btn-lg px-4">Submit</button>
   <a href="./index.php" class="btn btn-outline-dark mx-2 btn-lg ">Cancel</a>
-  <button name="submit" type="submit" class="btn btn-danger btn-lg px-4">Delete</button>
+  <button name="delete" type="submit" class="btn btn-danger btn-lg px-4">Delete</button>
 
 </form>
 

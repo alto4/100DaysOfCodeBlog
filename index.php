@@ -10,13 +10,18 @@ $title = "Day 1: Setting Up a Blog & Generating a Game Plan";
 // $categories = select("SELECT * FROM categories");
 // print_r($categories);
 
-$posts = select("SELECT * FROM posts");
+$posts = select("SELECT * FROM posts ORDER BY id DESC");
 if ($posts) {
   foreach ($posts as $post) {
-    echo '<div class="border p-3 blog-post">
-  <h2 class="blog-post-title"><a href="./post.php?id=' . $post['id'] . '">' . $post['title'] . '</a></h2>
-  <p class="blog-post-meta">' . formatDate($post['date']) . ' by <a href="#">' . $post['author'] . '</a></p>
-  <p>' . shortenText($post['body']) . '</p>
+    echo '<div class="border p-3 blog-post row">
+    <div class="col-md-6">
+      <h2 class="blog-post-title"><a href="./post.php?id=' . $post['id'] . '">' . $post['title'] . '</a></h2>
+      <p class="blog-post-meta">' . formatDate($post['date']) . ' by <a href="#">' . $post['author'] . '</a></p>
+      <p>' . shortenText($post['body'], 250) . '</p>
+    </div>
+    <div class="col-md-6 p-3">
+    <img class="blog-post-image" src="https://images.pexels.com/photos/315791/pexels-photo-315791.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=200"/>
+    </div>
   </div><!-- /.blog-post -->
 ';
   }

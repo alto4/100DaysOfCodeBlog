@@ -49,13 +49,6 @@ include './config/config.php';
       </nav>
     </div>
 
-    <div class="jumbotron py-5 px-4 p-md-5 text-white rounded bg-dark">
-      <div class="col-md-7 col-lg-8 px-0">
-        <h1><?php echo $title; ?></h1>
-        <p class="lead my-3">My experience setting up a blog to prepare for the 100 Days of Code Challenge in an effort to organize my learning as a new developer.</p>
-      </div>
-    </div>
-
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8 blog-main">
+        <div class="col-12 blog-main">

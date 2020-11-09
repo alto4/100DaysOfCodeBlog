@@ -48,3 +48,13 @@ function update($query)
     header('Location: index.php?message=' . urldecode("Record Successfully Updated"));
   }
 }
+
+function delete($query)
+{
+  $conn = db_connect();
+  $deleteRow = pg_query($conn, $query);
+
+  if ($deleteRow) {
+    header('Location: index.php?message=' . urldecode("Record Successfully Deleted"));
+  }
+}

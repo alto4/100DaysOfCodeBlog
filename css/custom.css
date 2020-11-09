@@ -1,3 +1,29 @@
+.blog-post-section {
+  border: 1px solid #333 !important;
+  border-radius: 0.3em;
+  text-align: center;
+}
+
+.blog-post-body {
+  text-align: left;
+  padding: 2rem;
+}
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #111;
+}
+
+.blog-post-image {
+  width: 100%;
+}
+
+.blog-post img {
+  width: 50%;
+}
 /* stylelint-disable selector-list-comma-newline-after */
 
 .blog-header {

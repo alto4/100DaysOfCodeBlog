@@ -34,7 +34,7 @@ include '../config/config.php';
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-8 pt-1">
-          <a class="text-muted blog-header-logo text-dark" href="#">&lt;S/A&gt; Development</a>
+          <a class="blog-header-logo text-dark" href="#">&lt;S/A&gt; Development</a>
         </div>
       </div>
     </header>

@@ -20,7 +20,7 @@
 </div><!-- /.row -->
 
 </main><!-- /.container -->
-
+</div>
 <footer class="bg-dark blog-footer">
   <p>Scott Alton &copy; 2020</p>
 </footer>
